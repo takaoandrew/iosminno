@@ -25,27 +25,27 @@
     [self.view addConstraints:constraints];
 }
 
--(void)tapDetected{
-    [self.view addConstraint:[
-                              NSLayoutConstraint
-                              constraintWithItem: self.snapchatUser
-                              attribute: NSLayoutAttributeCenterY
-                              relatedBy: NSLayoutRelationEqual
-                              toItem: self.view
-                              attribute: NSLayoutAttributeCenterY
-                              multiplier: 1.1
-                              constant: 0
-                              ]];
-    [self.view addConstraint:[
-                              NSLayoutConstraint
-                              constraintWithItem: self.snapchatUser
-                              attribute: NSLayoutAttributeLeft
-                              relatedBy: NSLayoutRelationEqual
-                              toItem: self.view
-                              attribute: NSLayoutAttributeLeft
-                              multiplier: 1
-                              constant: 80
-                              ]];
+-(void)contactTapped{
+    
+    NSLog(@"single Tap on imageview");
+}
+
+-(void)echoTapped{
+    NSString *message = @"Coming Soon...";
+    
+    UIAlertView *toast = [[UIAlertView alloc]
+                          initWithTitle:nil
+                          message:message
+                          delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:nil, nil];
+    [toast show];
+    
+    int duration = 1; // duration in seconds
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [toast dismissWithClickedButtonIndex:0 animated:YES];
+    });
     NSLog(@"single Tap on imageview");
 }
 
@@ -149,10 +149,15 @@
     self.facebookMutual.text = @"10 Mutual";
     self.instagramMutual.text = @"12 Mutual";
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected)];
-    singleTap.numberOfTapsRequired = 1;
-    [_snapchatView setUserInteractionEnabled:YES];
-    [_snapchatView addGestureRecognizer:singleTap];
+    UITapGestureRecognizer *contactTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contactTapped)];
+    contactTap.numberOfTapsRequired = 1;
+    [_contactButton setUserInteractionEnabled:YES];
+    [_contactButton addGestureRecognizer:contactTap];
+    
+    UITapGestureRecognizer *echoTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(echoTapped)];
+    echoTap.numberOfTapsRequired = 1;
+    [_echoButton setUserInteractionEnabled:YES];
+    [_echoButton addGestureRecognizer:echoTap];
     
     
     [self.contactButton
@@ -186,15 +191,14 @@
     
     
     [self addLayout:@"|-30-[profile]-|"];
-    [self addLayout:@"|-30-[connect]-|"];
-    [self addLayout:@"|-30-[friend]-|"];
-    [self addLayout:@"|-30-[connectnum]-|"];
+//    [self addLayout:@"|-30-[connect]-|"];
+//    [self addLayout:@"|-30-[friend]-|"];
+//    [self addLayout:@"|-30-[connectnum]-|"];
     
     // Set up some vertical layout. Note the missing | at the end. We should
     // talk about that.
-    [_connectWrapper addLayout:@"V:|-20-[connect]-[friend]-[connectnum]"]
-    [self addLayout:@"V:|-40-[profile]-[connectwrapper]"];
-    asf;lkjf
+//    [_connectWrapper addLayout:@"V:|-20-[connect]-[friend]-[connectnum]"]
+    [self addLayout:@"V:|-40-[profile]"];
     
     
     //
@@ -252,111 +256,111 @@
                               constant: 0
                               ]];
     //Name
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.nameView
-//                              attribute: NSLayoutAttributeCenterY
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterY
-//                              multiplier: .15
-//                              constant: 0
-//                              ]];
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.nameView
-//                              attribute: NSLayoutAttributeCenterX
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterX
-//                              multiplier: 1.2
-//                              constant: 0
-//                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.nameView
+                              attribute: NSLayoutAttributeCenterY
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterY
+                              multiplier: .15
+                              constant: 0
+                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.nameView
+                              attribute: NSLayoutAttributeCenterX
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterX
+                              multiplier: 1.2
+                              constant: 0
+                              ]];
     //ConnectNum
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.connectNumberView
-//                              attribute: NSLayoutAttributeCenterY
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterY
-//                              multiplier: .3
-//                              constant: 0
-//                              ]];
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.connectNumberView
-//                              attribute: NSLayoutAttributeCenterX
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterX
-//                              multiplier: .9
-//                              constant: 0
-//                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.connectNumberView
+                              attribute: NSLayoutAttributeCenterY
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterY
+                              multiplier: .3
+                              constant: 0
+                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.connectNumberView
+                              attribute: NSLayoutAttributeCenterX
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterX
+                              multiplier: .9
+                              constant: 0
+                              ]];
     //Connect
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.connectView
-//                              attribute: NSLayoutAttributeCenterY
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterY
-//                              multiplier: .35
-//                              constant: 0
-//                              ]];
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.connectView
-//                              attribute: NSLayoutAttributeCenterX
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterX
-//                              multiplier: .9
-//                              constant: 0
-//                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.connectView
+                              attribute: NSLayoutAttributeCenterY
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterY
+                              multiplier: .35
+                              constant: 0
+                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.connectView
+                              attribute: NSLayoutAttributeCenterX
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterX
+                              multiplier: .9
+                              constant: 0
+                              ]];
     //Friendnum
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.friendNumberView
-//                              attribute: NSLayoutAttributeCenterY
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterY
-//                              multiplier: .3
-//                              constant: 0
-//                              ]];
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.friendNumberView
-//                              attribute: NSLayoutAttributeCenterX
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterX
-//                              multiplier: 1.5
-//                              constant: 0
-//                              ]];
-    //Friend
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.friendView
-//                              attribute: NSLayoutAttributeCenterY
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterY
-//                              multiplier: .35
-//                              constant: 0
-//                              ]];
-//    [self.view addConstraint:[
-//                              NSLayoutConstraint
-//                              constraintWithItem: self.friendView
-//                              attribute: NSLayoutAttributeCenterX
-//                              relatedBy: NSLayoutRelationEqual
-//                              toItem: self.view
-//                              attribute: NSLayoutAttributeCenterX
-//                              multiplier: 1.5
-//                              constant: 0
-//                              ]];
-//    
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.friendNumberView
+                              attribute: NSLayoutAttributeCenterY
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterY
+                              multiplier: .3
+                              constant: 0
+                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.friendNumberView
+                              attribute: NSLayoutAttributeCenterX
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterX
+                              multiplier: 1.5
+                              constant: 0
+                              ]];
+//    Friend
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.friendView
+                              attribute: NSLayoutAttributeCenterY
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterY
+                              multiplier: .35
+                              constant: 0
+                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.friendView
+                              attribute: NSLayoutAttributeCenterX
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterX
+                              multiplier: 1.5
+                              constant: 0
+                              ]];
+//
     //Profile
     [self.view addConstraint:[
                               NSLayoutConstraint
@@ -590,6 +594,26 @@
                               constant: 0
                               ]];
     //SnapchatUser
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.snapchatUser
+                              attribute: NSLayoutAttributeCenterY
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeCenterY
+                              multiplier: 1.1
+                              constant: 0
+                              ]];
+    [self.view addConstraint:[
+                              NSLayoutConstraint
+                              constraintWithItem: self.snapchatUser
+                              attribute: NSLayoutAttributeLeft
+                              relatedBy: NSLayoutRelationEqual
+                              toItem: self.view
+                              attribute: NSLayoutAttributeLeft
+                              multiplier: 1
+                              constant: 80
+                              ]];
 
 
     //
