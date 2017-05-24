@@ -8,9 +8,9 @@
 
 //#import <Foundation/Foundation.h>
 #import "LoginVC.h"
+#import "CustomIOSAlertView.h"
 
 @implementation LoginViewController
-
 
 -(void)addLayout:(NSString*)format
 {
@@ -25,8 +25,66 @@
     [self.view addConstraints:constraints];
 }
 
+-(void)profileTapped{
+    CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
+    UIImageView *customView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 400, 600)];
+    UIImage *profileImage = [UIImage imageNamed:@"profile3.jpg"];
+    [customView setImage:profileImage];
+    
+    [alertView setContainerView:customView];
+    [alertView show];
+    
+//    ProfilePictures *alertView = [[ProfilePictures alloc] init];
+//    Add some custom content to the alert view (optional)
+//    
+//    UIView *customView ..;
+//    
+//    [alertView setContainerView:customView];
+//    Display the dialog
+//    
+//    [alertView show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Popup Title"
+//                                                    message:nil
+//                                                   delegate:nil
+//                                          cancelButtonTitle:@"Close"
+//                                          otherButtonTitles:nil];
+//    
+//    UIImageView *tempImageView=[[UIImageView alloc]initWithFrame:CGRectMake(20,20,50,50)];
+//    
+//    tempImageView.image=[UIImage imageNamed:@"profile3.jpg"];
+//    
+//    [alert addSubview:tempImageView];
+//    
+//    [alert show];
+}
+
 -(void)contactTapped{
     
+    NSString *contactmessage = @"takaoandrew@gmail.com\r631-398-9782";
+//
+//    UIAlertController* alert = [UIAlertController alertControllerWithTitle:contactmessage
+//                                                                   message:@" "
+//                                                            preferredStyle:UIAlertControllerStyleAlert];
+//    
+//    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+//                                                          handler:^(UIAlertAction * action) {}];
+//
+//    [alert addAction:defaultAction];
+//    [self presentViewController:alert animated:YES completion:nil];
+//    
+    UIAlertView *contacttoast = [[UIAlertView alloc]
+                          initWithTitle:nil
+                          message:contactmessage
+                          delegate:nil
+                          cancelButtonTitle:@"Close"
+                          otherButtonTitles:nil, nil];
+    [contacttoast show];
+    
+    int duration = 20; // duration in seconds
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [contacttoast dismissWithClickedButtonIndex:0 animated:YES];
+    });
     NSLog(@"single Tap on imageview");
 }
 
@@ -158,6 +216,12 @@
     echoTap.numberOfTapsRequired = 1;
     [_echoButton setUserInteractionEnabled:YES];
     [_echoButton addGestureRecognizer:echoTap];
+    
+    UITapGestureRecognizer *profileTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileTapped)];
+    profileTap.numberOfTapsRequired = 1;
+    [self.profileView setUserInteractionEnabled:YES];
+    [self.profileView addGestureRecognizer:profileTap];
+    
     
     
     [self.contactButton

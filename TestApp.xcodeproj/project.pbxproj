@@ -11,6 +11,7 @@
 		BF4850B71ECA017F00E47267 /* profile3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF4850B61ECA017F00E47267 /* profile3.jpg */; };
 		BF4850B91ECB4F6E00E47267 /* instagram.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF4850B81ECB4F6E00E47267 /* instagram.jpg */; };
 		BF4850BB1ECB4F7500E47267 /* snapchat.png in Resources */ = {isa = PBXBuildFile; fileRef = BF4850BA1ECB4F7500E47267 /* snapchat.png */; };
+		BF6FFBAB1ED6359800C8B17A /* CustomIOSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6FFBAA1ED6359800C8B17A /* CustomIOSAlertView.m */; };
 		BF9C82201EB6BB6F00C61738 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C821F1EB6BB6F00C61738 /* main.m */; };
 		BF9C82231EB6BB6F00C61738 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C82221EB6BB6F00C61738 /* AppDelegate.m */; };
 		BF9C82261EB6BB6F00C61738 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C82251EB6BB6F00C61738 /* ViewController.m */; };
@@ -44,6 +45,8 @@
 		BF4850B61ECA017F00E47267 /* profile3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = profile3.jpg; path = ../../Minno/app/src/main/res/drawable/profile3.jpg; sourceTree = "<group>"; };
 		BF4850B81ECB4F6E00E47267 /* instagram.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = instagram.jpg; path = ../../Minno/app/src/main/res/drawable/instagram.jpg; sourceTree = "<group>"; };
 		BF4850BA1ECB4F7500E47267 /* snapchat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = snapchat.png; path = ../../Minno/app/src/main/res/drawable/snapchat.png; sourceTree = "<group>"; };
+		BF6FFBAA1ED6359800C8B17A /* CustomIOSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOSAlertView.m; sourceTree = "<group>"; };
+		BF6FFBAC1ED635AF00C8B17A /* CustomIOSAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomIOSAlertView.h; sourceTree = "<group>"; };
 		BF9C821B1EB6BB6F00C61738 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9C821F1EB6BB6F00C61738 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF9C82211EB6BB6F00C61738 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				BF9C821E1EB6BB6F00C61738 /* Supporting Files */,
 				BF9C82531EB6C5AD00C61738 /* LoginVC.m */,
 				BF9C82551EB6C5DB00C61738 /* LoginVC.h */,
+				BF6FFBAA1ED6359800C8B17A /* CustomIOSAlertView.m */,
+				BF6FFBAC1ED635AF00C8B17A /* CustomIOSAlertView.h */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF9C82261EB6BB6F00C61738 /* ViewController.m in Sources */,
+				BF6FFBAB1ED6359800C8B17A /* CustomIOSAlertView.m in Sources */,
 				BF9C82231EB6BB6F00C61738 /* AppDelegate.m in Sources */,
 				BF9C82541EB6C5AD00C61738 /* LoginVC.m in Sources */,
 				BF9C82201EB6BB6F00C61738 /* main.m in Sources */,
