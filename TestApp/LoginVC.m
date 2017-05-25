@@ -25,6 +25,51 @@
     [self.view addConstraints:constraints];
 }
 
+- (void)openScheme:(NSString *)scheme {
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:scheme];
+    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+        if (success) {
+            NSLog(@"Opened %@",scheme);
+        }
+        else {
+            NSLog(@"Failed");
+        }
+    }];
+}
+
+- (BOOL)schemeAvailable:(NSString *)scheme {
+    UIApplication *application = [UIApplication sharedApplication];
+    NSURL *URL = [NSURL URLWithString:scheme];
+    return [application canOpenURL:URL];
+}
+
+-(void)facebookTapped{
+    BOOL fbInstalled = [self schemeAvailable:@"fb://"];
+    if (fbInstalled) {
+        NSLog(@"Installed");
+        NSURL *facebookURL = [NSURL URLWithString:@"fb://profile/661299413"];
+        if ([[UIApplication sharedApplication] canOpenURL:facebookURL]) {
+            [[UIApplication sharedApplication] openURL:facebookURL];
+        } else {
+            NSLog(@"didn't work");
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com"]];
+        }
+    }
+    else {
+        NSLog(@"Not installed");
+        [self openScheme:@"http://www.facebook.com/661299413"];
+    }
+    //insert fb id depending on user mine 661299413
+//    NSURL *facebookURL = [NSURL URLWithString:@"fb://profile/661299413"];
+//    if ([[UIApplication sharedApplication] canOpenURL:facebookURL]) {
+//        [[UIApplication sharedApplication] openURL:facebookURL];
+//    } else {
+//        NSLog(@"didn't work");
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com"]];
+//    }
+}
+
 -(void)profileTapped{
     CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
     UIImageView *customView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 400, 600)];
@@ -206,6 +251,11 @@
     self.snapchatUser.text = @"chocotaco";
     self.facebookMutual.text = @"10 Mutual";
     self.instagramMutual.text = @"12 Mutual";
+    
+    UITapGestureRecognizer *facebookTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(facebookTapped)];
+    facebookTap.numberOfTapsRequired = 1;
+    [_facebookView setUserInteractionEnabled:YES];
+    [_facebookView addGestureRecognizer:facebookTap];
     
     UITapGestureRecognizer *contactTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contactTapped)];
     contactTap.numberOfTapsRequired = 1;
