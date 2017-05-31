@@ -27,7 +27,7 @@
 @property UILabel* connectNumberView;
 @property UILabel* friendNumberView;
 @property UILabel* connectView;
-@property UILabel* friendView;
+@property UILabel* friendView; 
 @property UIImageView* facebookView;
 @property UIImageView* instagramView;
 @property UIImageView* snapchatView;
@@ -36,6 +36,9 @@
 @property UILabel* snapchatUser;
 @property UILabel* facebookMutual;
 @property UILabel* instagramMutual;
+
+@property UISearchBar* searchBar;
+
 
 
 @end
