@@ -25,6 +25,29 @@
     [self.view addConstraints:constraints];
 }
 
+- (void)addBorder:(UIView *)view toEdge:(UIRectEdge)edge withColor:(UIColor *)color withThickness:(float)thickness{
+    UIView *border = [UIView new];
+    border.backgroundColor = color;
+    [border setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin];
+    switch (edge) {
+        case UIRectEdgeTop:
+            border.frame = CGRectMake(0, 0, view.frame.size.width, thickness);
+            break;
+        case UIRectEdgeBottom:
+            border.frame = CGRectMake(0, view.frame.size.height - thickness, view.frame.size.width, thickness);
+            break;
+        case UIRectEdgeLeft:
+            border.frame = CGRectMake(0, 0, thickness, view.frame.size.height);
+            break;
+        case UIRectEdgeRight:
+            border.frame = CGRectMake(view.frame.size.width - thickness, 0, thickness, view.frame.size.height);
+            break;
+        default:
+            break;
+    }
+    [view addSubview:border];
+}
+
 - (void)openScheme:(NSString *)scheme {
     UIApplication *application = [UIApplication sharedApplication];
     NSURL *URL = [NSURL URLWithString:scheme];
@@ -45,6 +68,7 @@
 }
 
 -(void)facebookTapped{
+    
     BOOL fbInstalled = [self schemeAvailable:@"fb://"];
     if (fbInstalled) {
         NSLog(@"Installed");
@@ -68,6 +92,42 @@
 //        NSLog(@"didn't work");
 //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com"]];
 //    }
+}
+
+-(void)instagramTapped{
+    BOOL instagramInstalled = [self schemeAvailable:@"instagram://"];
+    if (instagramInstalled) {
+        NSLog(@"Installed");
+        NSURL *instagramURL = [NSURL URLWithString:@"instagram://user?username=chocotako1"];
+        if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
+            [[UIApplication sharedApplication] openURL:instagramURL];
+        } else {
+            NSLog(@"didn't work");
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://instagram.com"]];
+        }
+    }
+    else {
+        NSLog(@"Not installed");
+        [self openScheme:@"http://www.instagram.com/chocotako1"];
+    }
+}
+
+-(void)snapchatTapped{
+    BOOL snapchatInstalled = [self schemeAvailable:@"snapchat://"];
+    if (snapchatInstalled) {
+        NSLog(@"Installed");
+        NSURL *snapchatURL = [NSURL URLWithString:@"snapchat://add/chocotako"];
+        if ([[UIApplication sharedApplication] canOpenURL:snapchatURL]) {
+            [[UIApplication sharedApplication] openURL:snapchatURL];
+        } else {
+            NSLog(@"didn't work");
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://snapchat.com"]];
+        }
+    }
+    else {
+        NSLog(@"Not installed");
+        [self openScheme:@"http://www.snapchat.com/add/chocotako"];
+    }
 }
 
 -(void)profileTapped{
@@ -134,6 +194,8 @@
 }
 
 -(void)echoTapped{
+    
+    
     NSString *message = @"Coming Soon...";
     
     UIAlertView *toast = [[UIAlertView alloc]
@@ -168,7 +230,10 @@
     self.nameWrapper = [[UIView alloc] init];
     self.nameView = [[UILabel alloc] init];
     
-    self.connectWrapper = [[UIView alloc] init];
+    CGRect  viewRect = CGRectMake(10, 10, 400, 100);
+//    self.connectWrapper = [[UIView alloc] initWithFrame:viewRect];
+//    self.connectWrapper.layer.borderWidth=2;
+    
     self.connectView = [[UILabel alloc] init];
     self.connectNumberView = [[UILabel alloc] init];
     
@@ -185,8 +250,9 @@
     self.facebookMutual = [[UILabel alloc] init];
     self.instagramMutual = [[UILabel alloc] init];
     
-    [self.connectWrapper addSubview:self.connectView];
-    [self.connectWrapper addSubview:self.connectNumberView];
+//    [self.connectWrapper addSubview:self.connectView];
+//    [self.connectWrapper addSubview:self.connectNumberView];
+    
     [self.view addSubview:self.contactButton];
     [self.view addSubview:self.echoButton];
     [self.view addSubview:self.profileView];
@@ -203,6 +269,8 @@
     [self.view addSubview:self.snapchatUser];
     [self.view addSubview:self.facebookMutual];
     [self.view addSubview:self.instagramMutual];
+    
+    [self.view addSubview:self.connectWrapper];
     
     self.viewNames = @{
                        @"view"     : self.view,
@@ -257,6 +325,16 @@
     [_facebookView setUserInteractionEnabled:YES];
     [_facebookView addGestureRecognizer:facebookTap];
     
+    UITapGestureRecognizer *instagramTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instagramTapped)];
+    instagramTap.numberOfTapsRequired = 1;
+    [_instagramView setUserInteractionEnabled:YES];
+    [_instagramView addGestureRecognizer:instagramTap];
+    
+    UITapGestureRecognizer *snapchatTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(snapchatTapped)];
+    snapchatTap.numberOfTapsRequired = 1;
+    [_snapchatView setUserInteractionEnabled:YES];
+    [_snapchatView addGestureRecognizer:snapchatTap];
+    
     UITapGestureRecognizer *contactTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contactTapped)];
     contactTap.numberOfTapsRequired = 1;
     [_contactButton setUserInteractionEnabled:YES];
@@ -303,7 +381,7 @@
     // Putt a single '-' instead of a length provides a system defined "small
     // space"
     
-    
+//    [self.connectWrapper addLayout:@"|-20-[connect]-10-[connectnum]-|"];
     [self addLayout:@"|-30-[profile]-|"];
 //    [self addLayout:@"|-30-[connect]-|"];
 //    [self addLayout:@"|-30-[friend]-|"];

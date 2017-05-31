@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestApp/LoginVC.m"
-            timestampString = "517420224.027543"
+            timestampString = "517509544.124928"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-contactTapped"
             landmarkType = "7">
          </BreakpointContent>
