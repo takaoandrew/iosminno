@@ -49,11 +49,18 @@
     self.facebookView = [[UIImageView alloc] init];
     self.instagramView = [[UIImageView alloc] init];
     self.snapchatView = [[UIImageView alloc] init];
+    self.twitterView = [[UIImageView alloc] init];
+    self.linkedinView = [[UIImageView alloc] init];
     self.facebookUser = [[UILabel alloc] init];
     self.instagramUser = [[UILabel alloc] init];
     self.snapchatUser = [[UILabel alloc] init];
+    self.twitterUser = [[UILabel alloc] init];
+    self.linkedinUser = [[UILabel alloc] init];
     self.facebookMutual = [[UILabel alloc] init];
     self.instagramMutual = [[UILabel alloc] init];
+    self.settingsView = [[UIImageView alloc] init];
+    self.avatarView = [[UIImageView alloc] init];
+    self.feedView = [[UIImageView alloc] init];
     
     [self.view addSubview:self.searchBar];
     [self.view addSubview:self.profileView];
@@ -67,11 +74,18 @@
     [self.view addSubview:self.facebookView];
     [self.view addSubview:self.instagramView];
     [self.view addSubview:self.snapchatView];
+    [self.view addSubview:self.twitterView];
+    [self.view addSubview:self.linkedinView];
     [self.view addSubview:self.facebookUser];
     [self.view addSubview:self.instagramUser];
     [self.view addSubview:self.snapchatUser];
+    [self.view addSubview:self.twitterUser];
+    [self.view addSubview:self.linkedinUser];
     [self.view addSubview:self.facebookMutual];
     [self.view addSubview:self.instagramMutual];
+    [self.view addSubview:self.settingsView];
+    [self.view addSubview:self.avatarView];
+    [self.view addSubview:self.feedView];
     
     self.viewNames = @{
                        @"view"          : self.view,
@@ -87,11 +101,18 @@
                        @"facebookimg"   : self.facebookView,
                        @"instagramimg"  : self.instagramView,
                        @"snapchatimg"   : self.snapchatView,
+                       @"twitterimg"    : self.twitterView,
+                       @"linkedinimg"   : self.linkedinView,
                        @"facebookusr"   : self.facebookUser,
                        @"instagramusr"  : self.instagramUser,
                        @"snapchatusr"   : self.snapchatUser,
+                       @"twitterusr"    : self.twitterUser,
+                       @"linkedinusr"   : self.linkedinUser,
                        @"facebookmut"   : self.facebookMutual,
-                       @"instagrammut"  : self.instagramMutual
+                       @"instagrammut"  : self.instagramMutual,
+                       @"settings"      : self.settingsView,
+                       @"avatar"        : self.avatarView,
+                       @"feed"          : self.feedView
                        };
     
     self.searchBar.translatesAutoresizingMaskIntoConstraints = NO;
@@ -106,17 +127,29 @@
     self.facebookView.translatesAutoresizingMaskIntoConstraints = NO;
     self.instagramView.translatesAutoresizingMaskIntoConstraints = NO;
     self.snapchatView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.twitterView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.linkedinView.translatesAutoresizingMaskIntoConstraints = NO;
     self.facebookUser.translatesAutoresizingMaskIntoConstraints = NO;
     self.instagramUser.translatesAutoresizingMaskIntoConstraints = NO;
     self.snapchatUser.translatesAutoresizingMaskIntoConstraints = NO;
+    self.twitterUser.translatesAutoresizingMaskIntoConstraints = NO;
+    self.linkedinUser.translatesAutoresizingMaskIntoConstraints = NO;
     self.facebookMutual.translatesAutoresizingMaskIntoConstraints = NO;
     self.instagramMutual.translatesAutoresizingMaskIntoConstraints = NO;
+    self.settingsView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.avatarView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.feedView.translatesAutoresizingMaskIntoConstraints = NO;
 
     
     self.profileView.image = [UIImage imageNamed:@"profile3.jpg"];
     self.facebookView.image = [UIImage imageNamed:@"facebook.png"];
     self.instagramView.image = [UIImage imageNamed:@"instagram3.jpg"];
     self.snapchatView.image = [UIImage imageNamed:@"snapchat.png"];
+    self.twitterView.image = [UIImage imageNamed:@"twitter.png"];
+    self.linkedinView.image = [UIImage imageNamed:@"linkedin.png"];
+    self.settingsView.image = [UIImage imageNamed:@"settings.png"];
+    self.avatarView.image = [UIImage imageNamed:@"avatar.png"];
+    self.feedView.image = [UIImage imageNamed:@"feed.jpeg"];
     
     self.nameView.text = @"Andrew Takao";
     self.connectNumberView.text = @"20";
@@ -126,6 +159,8 @@
     self.facebookUser.text = @"takaoandrew";
     self.instagramUser.text = @"andrewtakao";
     self.snapchatUser.text = @"chocotaco";
+    self.twitterUser.text = @"tweetakao";
+    self.linkedinUser.text = @"Andrew Takao";
     self.facebookMutual.text = @"10 Mutual";
     self.instagramMutual.text = @"12 Mutual";
     
@@ -159,6 +194,26 @@
     [_snapchatView setUserInteractionEnabled:YES];
     [_snapchatView addGestureRecognizer:snapchatTap];
     
+    UITapGestureRecognizer *twitterTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twitterTapped)];
+    twitterTap.numberOfTapsRequired = 1;
+    [_twitterView setUserInteractionEnabled:YES];
+    [_twitterView addGestureRecognizer:twitterTap];
+    
+    UITapGestureRecognizer *linkedinTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(linkedinTapped)];
+    linkedinTap.numberOfTapsRequired = 1;
+    [_linkedinView setUserInteractionEnabled:YES];
+    [_linkedinView addGestureRecognizer:linkedinTap];
+    
+    UITapGestureRecognizer *settingsTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(settingsTapped)];
+    settingsTap.numberOfTapsRequired = 1;
+    [_settingsView setUserInteractionEnabled:YES];
+    [_settingsView addGestureRecognizer:settingsTap];
+    
+    UITapGestureRecognizer *feedTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(feedTapped)];
+    feedTap.numberOfTapsRequired = 1;
+    [_feedView setUserInteractionEnabled:YES];
+    [_feedView addGestureRecognizer:feedTap];
+    
     [self.contactButton
      setTitle: @"Contact"
      forState: UIControlStateNormal];
@@ -175,6 +230,11 @@
      setTitleColor: self.view.tintColor
      forState: UIControlStateNormal];
 
+    
+    [self addLayout:@"V:|-20-[settings(30)]"];
+    [self addLayout:@"V:|-20-[avatar(30)]"];
+    [self addLayout:@"V:|-20-[feed(30)]"];
+    [self addLayout:@"H:|-[settings(30)]-125-[avatar(30)]-125-[feed(30)]-|"];
     
     [self addLayout:@"V:|-60-[searchbar]"];
     [self addLayout:@"H:|-[searchbar]-|"];
@@ -207,6 +267,12 @@
     [self addLayout:@"V:|-360-[snapchatimg(40)]"];
     [self addLayout:@"V:|-370-[snapchatusr]"];
     [self addLayout:@"H:|-20-[snapchatimg(40)]-30-[snapchatusr]-60-|"];
+    [self addLayout:@"V:|-410-[twitterimg(40)]"];
+    [self addLayout:@"V:|-420-[twitterusr]"];
+    [self addLayout:@"H:|-20-[twitterimg(40)]-30-[twitterusr]-60-|"];
+    [self addLayout:@"V:|-460-[linkedinimg(40)]"];
+    [self addLayout:@"V:|-470-[linkedinusr]"];
+    [self addLayout:@"H:|-20-[linkedinimg(40)]-30-[linkedinusr]-60-|"];
     
 }
 - (void)addBorder:(UIView *)view toEdge:(UIRectEdge)edge withColor:(UIColor *)color withThickness:(float)thickness{
@@ -314,6 +380,42 @@
     }
 }
 
+-(void)twitterTapped{
+    BOOL twitterInstalled = [self schemeAvailable:@"twitter://"];
+    if (twitterInstalled) {
+        NSLog(@"Installed");
+        NSURL *twitterURL = [NSURL URLWithString:@"twitter://twitterusrnamehere"];
+        if ([[UIApplication sharedApplication] canOpenURL:twitterURL]) {
+            [[UIApplication sharedApplication] openURL:twitterURL];
+        } else {
+            NSLog(@"didn't work");
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com"]];
+        }
+    }
+    else {
+        NSLog(@"Not installed");
+        [self openScheme:@"http://www.twitter.com/"];
+    }
+}
+
+-(void)linkedinTapped{
+    BOOL linkedinInstalled = [self schemeAvailable:@"linkedin://"];
+    if (linkedinInstalled) {
+        NSLog(@"Installed");
+        NSURL *linkedinURL = [NSURL URLWithString:@"linkedin://add/andrew-takao"];
+        if ([[UIApplication sharedApplication] canOpenURL:linkedinURL]) {
+            [[UIApplication sharedApplication] openURL:linkedinURL];
+        } else {
+            NSLog(@"Bad URL");
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://linkedin.com"]];
+        }
+    }
+    else {
+        NSLog(@"Not installed");
+        [self openScheme:@"http://www.linkedin.com/in/andrew-takao-93375b92"];
+    }
+}
+
 -(void)profileTapped{
     CustomIOSAlertView *alertView = [[CustomIOSAlertView alloc] init];
     UIImageView *customView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 400, 600)];
@@ -378,10 +480,7 @@
 }
 
 -(void)echoTapped{
-    
-    
     NSString *message = @"Coming Soon...";
-    
     UIAlertView *toast = [[UIAlertView alloc]
                           initWithTitle:nil
                           message:message
@@ -389,9 +488,39 @@
                           cancelButtonTitle:nil
                           otherButtonTitles:nil, nil];
     [toast show];
-    
     int duration = 1; // duration in seconds
-    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [toast dismissWithClickedButtonIndex:0 animated:YES];
+    });
+    NSLog(@"single Tap on imageview");
+}
+
+-(void)settingsTapped{
+    NSString *message = @"Coming Soon...";
+    UIAlertView *toast = [[UIAlertView alloc]
+                          initWithTitle:nil
+                          message:message
+                          delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:nil, nil];
+    [toast show];
+    int duration = 1; // duration in seconds
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [toast dismissWithClickedButtonIndex:0 animated:YES];
+    });
+    NSLog(@"single Tap on imageview");
+}
+
+-(void)feedTapped{
+    NSString *message = @"Coming Soon...";
+    UIAlertView *toast = [[UIAlertView alloc]
+                          initWithTitle:nil
+                          message:message
+                          delegate:nil
+                          cancelButtonTitle:nil
+                          otherButtonTitles:nil, nil];
+    [toast show];
+    int duration = 1; // duration in seconds
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [toast dismissWithClickedButtonIndex:0 animated:YES];
     });

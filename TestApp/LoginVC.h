@@ -31,11 +31,18 @@
 @property UIImageView* facebookView;
 @property UIImageView* instagramView;
 @property UIImageView* snapchatView;
+@property UIImageView* twitterView;
+@property UIImageView* linkedinView;
 @property UILabel* facebookUser;
 @property UILabel* instagramUser;
 @property UILabel* snapchatUser;
+@property UILabel* twitterUser;
+@property UILabel* linkedinUser;
 @property UILabel* facebookMutual;
 @property UILabel* instagramMutual;
+@property UIImageView* settingsView;
+@property UIImageView* avatarView;
+@property UIImageView* feedView;
 
 @property UISearchBar* searchBar;
 
