@@ -9,8 +9,297 @@
 //#import <Foundation/Foundation.h>
 #import "LoginVC.h"
 #import "CustomIOSAlertView.h"
+//#import "ContentView.h"
+//#import "ChatTableViewCell.h"
+#import "ChatTableViewCellXIB.h"
+#import "ChatCellSettings.h"
 
+
+
+//@interface iMessage: NSObject
+//
+//-(id) initIMessageWithName:(NSString *)name
+//                   message:(NSString *)message
+//                      time:(NSString *)time
+//                      type:(NSString *)type;
+//
+//@property (strong, nonatomic) NSString *userName;
+//@property (strong, nonatomic) NSString *userMessage;
+//@property (strong, nonatomic) NSString *userTime;
+//@property (strong, nonatomic) NSString *messageType;
+//
+//@end
+//
+//@implementation iMessage
+//
+//-(id) initIMessageWithName:(NSString *)name
+//                   message:(NSString *)message
+//                      time:(NSString *)time
+//                      type:(NSString *)type
+//{
+//    self = [super init];
+//    if(self)
+//    {
+//        self.userName = name;
+//        self.userMessage = message;
+//        self.userTime = time;
+//        self.messageType = type;
+//    }
+//    
+//    return self;
+//}
+//
+//@end
+//
 @implementation LoginViewController
+//
+//{
+//    NSMutableArray *currentMessages;
+//    ChatCellSettings *chatCellSettings;
+//}
+//@synthesize chatCell;
+//
+//- (void)viewDidLoad {
+//    NSLog(@"The view loaded!");
+//    [super viewDidLoad];
+//    
+//    currentMessages = [[NSMutableArray alloc] init];
+//    chatCellSettings = [ChatCellSettings getInstance];
+//    
+//    /**
+//     *  Set settings for Application. They are available in ChatCellSettings class.
+//     */
+//    
+//    //[chatCellSettings setSenderBubbleColor:[UIColor colorWithRed:0 green:(122.0f/255.0f) blue:1.0f alpha:1.0f]];
+//    //[chatCellSettings setReceiverBubbleColor:[UIColor colorWithRed:(223.0f/255.0f) green:(222.0f/255.0f) blue:(229.0f/255.0f) alpha:1.0f]];
+//    //[chatCellSettings setSenderBubbleNameTextColor:[UIColor colorWithRed:(255.0f/255.0f) green:(255.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0f]];
+//    //[chatCellSettings setReceiverBubbleNameTextColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f]];
+//    //[chatCellSettings setSenderBubbleMessageTextColor:[UIColor colorWithRed:(255.0f/255.0f) green:(255.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0f]];
+//    //[chatCellSettings setReceiverBubbleMessageTextColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f]];
+//    //[chatCellSettings setSenderBubbleTimeTextColor:[UIColor colorWithRed:(255.0f/255.0f) green:(255.0f/255.0f) blue:(255.0f/255.0f) alpha:1.0f]];
+//    //[chatCellSettings setReceiverBubbleTimeTextColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f]];
+//    
+//    [chatCellSettings setSenderBubbleColorHex:@"007AFF"];
+//    [chatCellSettings setReceiverBubbleColorHex:@"DFDEE5"];
+//    [chatCellSettings setSenderBubbleNameTextColorHex:@"FFFFFF"];
+//    [chatCellSettings setReceiverBubbleNameTextColorHex:@"000000"];
+//    [chatCellSettings setSenderBubbleMessageTextColorHex:@"FFFFFF"];
+//    [chatCellSettings setReceiverBubbleMessageTextColorHex:@"000000"];
+//    [chatCellSettings setSenderBubbleTimeTextColorHex:@"FFFFFF"];
+//    [chatCellSettings setReceiverBubbleTimeTextColorHex:@"000000"];
+//    
+//    [chatCellSettings setSenderBubbleFontWithSizeForName:[UIFont boldSystemFontOfSize:11]];
+//    [chatCellSettings setReceiverBubbleFontWithSizeForName:[UIFont boldSystemFontOfSize:11]];
+//    [chatCellSettings setSenderBubbleFontWithSizeForMessage:[UIFont systemFontOfSize:14]];
+//    [chatCellSettings setReceiverBubbleFontWithSizeForMessage:[UIFont systemFontOfSize:14]];
+//    [chatCellSettings setSenderBubbleFontWithSizeForTime:[UIFont systemFontOfSize:11]];
+//    [chatCellSettings setReceiverBubbleFontWithSizeForTime:[UIFont systemFontOfSize:11]];
+//    
+//    [chatCellSettings senderBubbleTailRequired:YES];
+//    [chatCellSettings receiverBubbleTailRequired:YES];
+//    
+//    self.navigationItem.title = @"iMessageBubble Demo";
+//    
+//    [[self chatTable] setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+//    
+//    
+//    
+//    
+//    
+//    
+//    /*Uncomment second para and comment first to use XIB instead of code*/
+//    //Registering custom Chat table view cell for both sending and receiving
+//    [[self chatTable] registerClass:[ChatTableViewCell class] forCellReuseIdentifier:@"chatSend"];
+//    
+//    [[self chatTable] registerClass:[ChatTableViewCell class] forCellReuseIdentifier:@"chatReceive"];
+//    
+//    
+//    /*UINib *nib = [UINib nibWithNibName:@"ChatSendCell" bundle:nil];
+//     
+//     [[self chatTable] registerNib:nib forCellReuseIdentifier:@"chatSend"];
+//     
+//     nib = [UINib nibWithNibName:@"ChatReceiveCell" bundle:nil];
+//     
+//     [[self chatTable] registerNib:nib forCellReuseIdentifier:@"chatReceive"];*/
+//    
+//    
+//    
+//    
+//    
+//    
+//    //Instantiating custom view that adjusts itself to keyboard show/hide
+//    self.handler = [[ContentView alloc] initWithTextView:self.chatTextView ChatTextViewHeightConstraint:self.chatTextViewHeightConstraint contentView:self.contentView ContentViewHeightConstraint:self.contentViewHeightConstraint andContentViewBottomConstraint:self.contentViewBottomConstraint];
+//    
+//    //Setting the minimum and maximum number of lines for the textview vertical expansion
+//    [self.handler updateMinimumNumberOfLines:1 andMaximumNumberOfLine:3];
+//    
+//    //Tap gesture on table view so that when someone taps on it, the keyboard is hidden
+//    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+//    
+//    [self.chatTable addGestureRecognizer:gestureRecognizer];
+//}
+//
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
+//}
+//
+//- (void) dismissKeyboard
+//{
+//    [self.chatTextView resignFirstResponder];
+//}
+//
+//- (IBAction)sendMessage:(id)sender
+//{
+//    if([self.chatTextView.text length]!=0)
+//    {
+//        iMessage *sendMessage;
+//        
+//        sendMessage = [[iMessage alloc] initIMessageWithName:@"Prateek Grover" message:self.chatTextView.text time:@"23:14" type:@"self"];
+//        
+//        [self updateTableView:sendMessage];
+//    }
+//}
+//
+//- (IBAction)receiveMessage:(id)sender
+//{
+//    if([self.chatTextView.text length]!=0)
+//    {
+//        iMessage *receiveMessage;
+//        
+//        receiveMessage = [[iMessage alloc] initIMessageWithName:@"Prateek Grover" message:self.chatTextView.text time:@"23:14" type:@"other"];
+//        
+//        [self updateTableView:receiveMessage];
+//    }
+//}
+//
+//-(void) updateTableView:(iMessage *)msg
+//{
+//    [self.chatTextView setText:@""];
+//    [self.handler textViewDidChange:self.chatTextView];
+//    
+//    [self.chatTable beginUpdates];
+//    
+//    NSIndexPath *row1 = [NSIndexPath indexPathForRow:currentMessages.count inSection:0];
+//    
+//    [currentMessages insertObject:msg atIndex:currentMessages.count];
+//    
+//    [self.chatTable insertRowsAtIndexPaths:[NSArray arrayWithObjects:row1, nil] withRowAnimation:UITableViewRowAnimationBottom];
+//    
+//    [self.chatTable endUpdates];
+//    
+//    //Always scroll the chat table when the user sends the message
+//    if([self.chatTable numberOfRowsInSection:0]!=0)
+//    {
+//        NSIndexPath* ip = [NSIndexPath indexPathForRow:[self.chatTable numberOfRowsInSection:0]-1 inSection:0];
+//        [self.chatTable scrollToRowAtIndexPath:ip atScrollPosition:UITableViewScrollPositionBottom animated:UITableViewRowAnimationLeft];
+//    }
+//}
+//
+//
+//
+//#pragma mark - UITableViewDatasource methods
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return 1;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    return currentMessages.count;
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    iMessage *message = [currentMessages objectAtIndex:indexPath.row];
+//    
+//    if([message.messageType isEqualToString:@"self"])
+//    {
+//        /*Uncomment second line and comment first to use XIB instead of code*/
+//        chatCell = (ChatTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"chatSend"];
+//        //chatCell = (ChatTableViewCellXIB *)[tableView dequeueReusableCellWithIdentifier:@"chatSend"];
+//        
+//        chatCell.chatMessageLabel.text = message.userMessage;
+//        
+//        chatCell.chatNameLabel.text = message.userName;
+//        
+//        chatCell.chatTimeLabel.text = message.userTime;
+//        
+//        chatCell.chatUserImage.image = [UIImage imageNamed:@"defaultUser"];
+//        
+//        /*Comment this line is you are using XIB*/
+//        chatCell.authorType = iMessageBubbleTableViewCellAuthorTypeSender;
+//    }
+//    else
+//    {
+//        /*Uncomment second line and comment first to use XIB instead of code*/
+//        chatCell = (ChatTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"chatReceive"];
+//        //chatCell = (ChatTableViewCellXIB *)[tableView dequeueReusableCellWithIdentifier:@"chatReceive"];
+//        
+//        chatCell.chatMessageLabel.text = message.userMessage;
+//        
+//        chatCell.chatNameLabel.text = message.userName;
+//        
+//        chatCell.chatTimeLabel.text = message.userTime;
+//        
+//        chatCell.chatUserImage.image = [UIImage imageNamed:@"defaultUser"];
+//        
+//        /*Comment this line is you are using XIB*/
+//        chatCell.authorType = iMessageBubbleTableViewCellAuthorTypeReceiver;
+//    }
+//    
+//    return chatCell;
+//    
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    iMessage *message = [currentMessages objectAtIndex:indexPath.row];
+//    
+//    CGSize size;
+//    
+//    CGSize Namesize;
+//    CGSize Timesize;
+//    CGSize Messagesize;
+//    
+//    NSArray *fontArray = [[NSArray alloc] init];
+//    
+//    //Get the chal cell font settings. This is to correctly find out the height of each of the cell according to the text written in those cells which change according to their fonts and sizes.
+//    //If you want to keep the same font sizes for both sender and receiver cells then remove this code and manually enter the font name with size in Namesize, Messagesize and Timesize.
+//    if([message.messageType isEqualToString:@"self"])
+//    {
+//        fontArray = chatCellSettings.getSenderBubbleFontWithSize;
+//    }
+//    else
+//    {
+//        fontArray = chatCellSettings.getReceiverBubbleFontWithSize;
+//    }
+//    
+//    //Find the required cell height
+//    Namesize = [@"Name" boundingRectWithSize:CGSizeMake(220.0f, CGFLOAT_MAX)
+//                                     options:NSStringDrawingUsesLineFragmentOrigin
+//                                  attributes:@{NSFontAttributeName:fontArray[0]}
+//                                     context:nil].size;
+//    
+//    
+//    
+//    Messagesize = [message.userMessage boundingRectWithSize:CGSizeMake(220.0f, CGFLOAT_MAX)
+//                                                    options:NSStringDrawingUsesLineFragmentOrigin
+//                                                 attributes:@{NSFontAttributeName:fontArray[1]}
+//                                                    context:nil].size;
+//    
+//    
+//    Timesize = [@"Time" boundingRectWithSize:CGSizeMake(220.0f, CGFLOAT_MAX)
+//                                     options:NSStringDrawingUsesLineFragmentOrigin
+//                                  attributes:@{NSFontAttributeName:fontArray[2]}
+//                                     context:nil].size;
+//    
+//    
+//    size.height = Messagesize.height + Namesize.height + Timesize.height + 48.0f;
+//    
+//    return size.height;
+//}
 
 -(void)addLayout:(NSString*)format
 {
@@ -62,6 +351,11 @@
     self.avatarView = [[UIImageView alloc] init];
     self.feedView = [[UIImageView alloc] init];
     
+//    self.chatCell = [[ChatTableViewCell alloc] init];
+    self.tableView = [[UITableView alloc] init];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"chatSend"];
+    self.chatCell = (ChatTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"chatSend"];
+    
     [self.view addSubview:self.searchBar];
     [self.view addSubview:self.profileView];
     [self.view addSubview:self.nameView];
@@ -73,19 +367,22 @@
     [self.view addSubview:self.echoButton];
     [self.view addSubview:self.facebookView];
     [self.view addSubview:self.instagramView];
-    [self.view addSubview:self.snapchatView];
-    [self.view addSubview:self.twitterView];
-    [self.view addSubview:self.linkedinView];
+//    [self.view addSubview:self.snapchatView];
+//    [self.view addSubview:self.twitterView];
+//    [self.view addSubview:self.linkedinView];
     [self.view addSubview:self.facebookUser];
     [self.view addSubview:self.instagramUser];
-    [self.view addSubview:self.snapchatUser];
-    [self.view addSubview:self.twitterUser];
-    [self.view addSubview:self.linkedinUser];
+//    [self.view addSubview:self.snapchatUser];
+//    [self.view addSubview:self.twitterUser];
+//    [self.view addSubview:self.linkedinUser];
     [self.view addSubview:self.facebookMutual];
     [self.view addSubview:self.instagramMutual];
     [self.view addSubview:self.settingsView];
     [self.view addSubview:self.avatarView];
     [self.view addSubview:self.feedView];
+    
+    [self.view addSubview:self.chatCell];
+    [self.view addSubview:self.tableView];
     
     self.viewNames = @{
                        @"view"          : self.view,
@@ -112,7 +409,9 @@
                        @"instagrammut"  : self.instagramMutual,
                        @"settings"      : self.settingsView,
                        @"avatar"        : self.avatarView,
-                       @"feed"          : self.feedView
+                       @"feed"          : self.feedView,
+                       @"table"         : self.tableView,
+                       @"chatbubble"    : self.chatCell
                        };
     
     self.searchBar.translatesAutoresizingMaskIntoConstraints = NO;
@@ -139,6 +438,9 @@
     self.settingsView.translatesAutoresizingMaskIntoConstraints = NO;
     self.avatarView.translatesAutoresizingMaskIntoConstraints = NO;
     self.feedView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.chatCell.translatesAutoresizingMaskIntoConstraints = NO;
 
     
     self.profileView.image = [UIImage imageNamed:@"profile3.jpg"];
@@ -163,6 +465,10 @@
     self.linkedinUser.text = @"Andrew Takao";
     self.facebookMutual.text = @"10 Mutual";
     self.instagramMutual.text = @"12 Mutual";
+    
+    
+//    self.testLabel = [[UILabel alloc] init];
+//    self.chatCell.chatNameLabel = self.testLabel;
     
     UITapGestureRecognizer *profileTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileTapped)];
     profileTap.numberOfTapsRequired = 1;
@@ -234,7 +540,8 @@
     [self addLayout:@"V:|-20-[settings(30)]"];
     [self addLayout:@"V:|-20-[avatar(30)]"];
     [self addLayout:@"V:|-20-[feed(30)]"];
-    [self addLayout:@"H:|-[settings(30)]-125-[avatar(30)]-125-[feed(30)]-|"];
+    //    [self addLayout:@"H:|-[settings(30)]-125-[avatar(30)]-125-[feed(30)]-|"];
+    [self addLayout:@"H:|-[settings(30)]->=50-[avatar(30)]-[feed(30)]-|"];
     
     [self addLayout:@"V:|-60-[searchbar]"];
     [self addLayout:@"H:|-[searchbar]-|"];
@@ -264,17 +571,33 @@
     [self addLayout:@"V:|-320-[instagramusr]"];
     [self addLayout:@"V:|-320-[instagrammut]"];
     [self addLayout:@"H:|-20-[instagramimg(40)]-30-[instagramusr]-60-[instagrammut]-50@1000-|"];
-    [self addLayout:@"V:|-360-[snapchatimg(40)]"];
-    [self addLayout:@"V:|-370-[snapchatusr]"];
-    [self addLayout:@"H:|-20-[snapchatimg(40)]-30-[snapchatusr]-60-|"];
-    [self addLayout:@"V:|-410-[twitterimg(40)]"];
-    [self addLayout:@"V:|-420-[twitterusr]"];
-    [self addLayout:@"H:|-20-[twitterimg(40)]-30-[twitterusr]-60-|"];
-    [self addLayout:@"V:|-460-[linkedinimg(40)]"];
-    [self addLayout:@"V:|-470-[linkedinusr]"];
-    [self addLayout:@"H:|-20-[linkedinimg(40)]-30-[linkedinusr]-60-|"];
+//    [self addLayout:@"V:|-360-[snapchatimg(40)]"];
+//    [self addLayout:@"V:|-370-[snapchatusr]"];
+//    [self addLayout:@"H:|-20-[snapchatimg(40)]-30-[snapchatusr]-60-|"];
+//    [self addLayout:@"V:|-410-[twitterimg(40)]"];
+//    [self addLayout:@"V:|-420-[twitterusr]"];
+//    [self addLayout:@"H:|-20-[twitterimg(40)]-30-[twitterusr]-60-|"];
+//    [self addLayout:@"V:|-460-[linkedinimg(40)]"];
+//    [self addLayout:@"V:|-470-[linkedinusr]"];
+//    [self addLayout:@"H:|-20-[linkedinimg(40)]-30-[linkedinusr]-60-|"];
+    
+    
+//    self.tableView = [[UITableView alloc] init];
+//    ChatTableViewCell *chatCell
+//    self.chatCell = [[ChatTableViewCell alloc] init];
+//    [self.view addSubview:self.chatCell];
+    
+//    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.chatCell.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self addLayout:@"V:|-470-[table]"];
+    [self addLayout:@"H:|-20-[table]-30-|"];
+    [self addLayout:@"V:|-470-[chatbubble]"];
+    [self addLayout:@"H:|-20-[chatbubble]-30-|"];
+//    [self.view addSubview:self.tableView];
     
 }
+
 - (void)addBorder:(UIView *)view toEdge:(UIRectEdge)edge withColor:(UIColor *)color withThickness:(float)thickness{
     UIView *border = [UIView new];
     border.backgroundColor = color;
@@ -527,11 +850,6 @@
     NSLog(@"single Tap on imageview");
 }
 
--(void)viewDidLoad
-{
-    
-    
-    NSLog(@"The view loaded!");
-}
-
 @end
+
+
