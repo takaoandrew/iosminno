@@ -17,9 +17,13 @@
 		BF7863A01EE04EF500B0100E /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = BF78639F1EE04EF500B0100E /* settings.png */; };
 		BF7863A31EE04FEA00B0100E /* feed.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BF7863A11EE04FEA00B0100E /* feed.jpeg */; };
 		BF7863A41EE04FEA00B0100E /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = BF7863A21EE04FEA00B0100E /* avatar.png */; };
+		BF7863AF1EE1990D00B0100E /* ChatCellSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7863A61EE1990D00B0100E /* ChatCellSettings.m */; };
+		BF7863B21EE1990D00B0100E /* ChatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7863AA1EE1990D00B0100E /* ChatTableViewCell.m */; };
+		BF7863B31EE1990D00B0100E /* ChatTableViewCellXIB.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7863AC1EE1990D00B0100E /* ChatTableViewCellXIB.m */; };
+		BF7863B41EE1990D00B0100E /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7863AE1EE1990D00B0100E /* ContentView.m */; };
+		BF7863B81EE1BBD700B0100E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF7863B71EE1BBD700B0100E /* ViewController.m */; };
 		BF9C82201EB6BB6F00C61738 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C821F1EB6BB6F00C61738 /* main.m */; };
 		BF9C82231EB6BB6F00C61738 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C82221EB6BB6F00C61738 /* AppDelegate.m */; };
-		BF9C82261EB6BB6F00C61738 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C82251EB6BB6F00C61738 /* ViewController.m */; };
 		BF9C82291EB6BB6F00C61738 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9C82271EB6BB6F00C61738 /* Main.storyboard */; };
 		BF9C822B1EB6BB6F00C61738 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9C822A1EB6BB6F00C61738 /* Assets.xcassets */; };
 		BF9C822E1EB6BB6F00C61738 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF9C822C1EB6BB6F00C61738 /* LaunchScreen.storyboard */; };
@@ -57,12 +61,20 @@
 		BF78639F1EE04EF500B0100E /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		BF7863A11EE04FEA00B0100E /* feed.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = feed.jpeg; sourceTree = "<group>"; };
 		BF7863A21EE04FEA00B0100E /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
+		BF7863A51EE1990D00B0100E /* ChatCellSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatCellSettings.h; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ChatCellSettings.h"; sourceTree = "<group>"; };
+		BF7863A61EE1990D00B0100E /* ChatCellSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatCellSettings.m; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ChatCellSettings.m"; sourceTree = "<group>"; };
+		BF7863A91EE1990D00B0100E /* ChatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatTableViewCell.h; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ChatTableViewCell.h"; sourceTree = "<group>"; };
+		BF7863AA1EE1990D00B0100E /* ChatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatTableViewCell.m; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ChatTableViewCell.m"; sourceTree = "<group>"; };
+		BF7863AB1EE1990D00B0100E /* ChatTableViewCellXIB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatTableViewCellXIB.h; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ChatTableViewCellXIB.h"; sourceTree = "<group>"; };
+		BF7863AC1EE1990D00B0100E /* ChatTableViewCellXIB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatTableViewCellXIB.m; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ChatTableViewCellXIB.m"; sourceTree = "<group>"; };
+		BF7863AD1EE1990D00B0100E /* ContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContentView.h; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ContentView.h"; sourceTree = "<group>"; };
+		BF7863AE1EE1990D00B0100E /* ContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContentView.m; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ContentView.m"; sourceTree = "<group>"; };
+		BF7863B61EE1BBD700B0100E /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ViewController.h"; sourceTree = "<group>"; };
+		BF7863B71EE1BBD700B0100E /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = "../../../../Downloads/iMessageBubble-master/Sample Project/iMessageBubble/ViewController.m"; sourceTree = "<group>"; };
 		BF9C821B1EB6BB6F00C61738 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9C821F1EB6BB6F00C61738 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BF9C82211EB6BB6F00C61738 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF9C82221EB6BB6F00C61738 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BF9C82241EB6BB6F00C61738 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BF9C82251EB6BB6F00C61738 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BF9C82281EB6BB6F00C61738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF9C822A1EB6BB6F00C61738 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF9C822D1EB6BB6F00C61738 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,6 +114,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF7863B51EE199AF00B0100E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BF7863A11EE04FEA00B0100E /* feed.jpeg */,
+				BF7863A21EE04FEA00B0100E /* avatar.png */,
+				BF78639F1EE04EF500B0100E /* settings.png */,
+				BF78639B1EE047FF00B0100E /* linkedin.png */,
+				BF78639C1EE047FF00B0100E /* twitter.png */,
+				BF7863991EDF68E800B0100E /* instagram3.jpg */,
+				BF4850B61ECA017F00E47267 /* profile3.jpg */,
+				BF4850B41EC9F84A00E47267 /* facebook.png */,
+				BF4850BA1ECB4F7500E47267 /* snapchat.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		BF9C82121EB6BB6E00C61738 = {
 			isa = PBXGroup;
 			children = (
@@ -125,19 +153,19 @@
 		BF9C821D1EB6BB6F00C61738 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				BF7863A11EE04FEA00B0100E /* feed.jpeg */,
-				BF7863A21EE04FEA00B0100E /* avatar.png */,
-				BF78639F1EE04EF500B0100E /* settings.png */,
-				BF78639B1EE047FF00B0100E /* linkedin.png */,
-				BF78639C1EE047FF00B0100E /* twitter.png */,
-				BF7863991EDF68E800B0100E /* instagram3.jpg */,
-				BF4850B61ECA017F00E47267 /* profile3.jpg */,
-				BF4850B41EC9F84A00E47267 /* facebook.png */,
-				BF4850BA1ECB4F7500E47267 /* snapchat.png */,
+				BF7863B51EE199AF00B0100E /* Images */,
+				BF7863A51EE1990D00B0100E /* ChatCellSettings.h */,
+				BF7863A61EE1990D00B0100E /* ChatCellSettings.m */,
+				BF7863A91EE1990D00B0100E /* ChatTableViewCell.h */,
+				BF7863AA1EE1990D00B0100E /* ChatTableViewCell.m */,
+				BF7863AB1EE1990D00B0100E /* ChatTableViewCellXIB.h */,
+				BF7863AC1EE1990D00B0100E /* ChatTableViewCellXIB.m */,
+				BF7863AD1EE1990D00B0100E /* ContentView.h */,
+				BF7863AE1EE1990D00B0100E /* ContentView.m */,
 				BF9C82211EB6BB6F00C61738 /* AppDelegate.h */,
 				BF9C82221EB6BB6F00C61738 /* AppDelegate.m */,
-				BF9C82241EB6BB6F00C61738 /* ViewController.h */,
-				BF9C82251EB6BB6F00C61738 /* ViewController.m */,
+				BF7863B61EE1BBD700B0100E /* ViewController.h */,
+				BF7863B71EE1BBD700B0100E /* ViewController.m */,
 				BF9C82271EB6BB6F00C61738 /* Main.storyboard */,
 				BF9C822A1EB6BB6F00C61738 /* Assets.xcassets */,
 				BF9C822C1EB6BB6F00C61738 /* LaunchScreen.storyboard */,
@@ -322,11 +350,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF9C82261EB6BB6F00C61738 /* ViewController.m in Sources */,
+				BF7863B81EE1BBD700B0100E /* ViewController.m in Sources */,
 				BF6FFBAB1ED6359800C8B17A /* CustomIOSAlertView.m in Sources */,
+				BF7863B41EE1990D00B0100E /* ContentView.m in Sources */,
+				BF7863AF1EE1990D00B0100E /* ChatCellSettings.m in Sources */,
+				BF7863B21EE1990D00B0100E /* ChatTableViewCell.m in Sources */,
 				BF9C82231EB6BB6F00C61738 /* AppDelegate.m in Sources */,
 				BF9C82541EB6C5AD00C61738 /* LoginVC.m in Sources */,
 				BF9C82201EB6BB6F00C61738 /* main.m in Sources */,
+				BF7863B31EE1990D00B0100E /* ChatTableViewCellXIB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
