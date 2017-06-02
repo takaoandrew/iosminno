@@ -13,8 +13,10 @@
 //#endif /* LoginVC_h */
 
 #import <UIKit/UIKit.h>
+#import "ChatTableViewCell.h"
+#import "ContentView.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
 @property NSDictionary* viewNames;
 
@@ -45,6 +47,20 @@
 @property UIImageView* feedView;
 
 @property UISearchBar* searchBar;
+
+@property (weak, nonatomic) IBOutlet UITableView *chatTable;
+@property (weak, nonatomic) IBOutlet ContentView *contentView;
+@property (weak, nonatomic) IBOutlet UITextView *chatTextView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *chatTextViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewBottomConstraint;
+
+/*Uncomment second line and comment first to use XIB instead of code*/
+@property (strong,nonatomic) ChatTableViewCell *chatCell;
+//@property (strong,nonatomic) ChatTableViewCellXIB *chatCell;
+
+
+@property (strong,nonatomic) ContentView *handler;
 
 
 
