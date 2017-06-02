@@ -324,24 +324,16 @@
         NSLog(@"Installed");
         NSURL *facebookURL = [NSURL URLWithString:@"fb://profile/661299413"];
         if ([[UIApplication sharedApplication] canOpenURL:facebookURL]) {
-            [[UIApplication sharedApplication] openURL:facebookURL];
+            [[UIApplication sharedApplication] openURL:facebookURL options:@{} completionHandler:nil];
         } else {
             NSLog(@"didn't work");
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com"] options:@{} completionHandler:nil];
         }
     }
     else {
         NSLog(@"Not installed");
         [self openScheme:@"http://www.facebook.com/661299413"];
     }
-    //insert fb id depending on user mine 661299413
-    //    NSURL *facebookURL = [NSURL URLWithString:@"fb://profile/661299413"];
-    //    if ([[UIApplication sharedApplication] canOpenURL:facebookURL]) {
-    //        [[UIApplication sharedApplication] openURL:facebookURL];
-    //    } else {
-    //        NSLog(@"didn't work");
-    //        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://facebook.com"]];
-    //    }
 }
 
 -(void)instagramTapped{
@@ -350,10 +342,10 @@
         NSLog(@"Installed");
         NSURL *instagramURL = [NSURL URLWithString:@"instagram://user?username=chocotako1"];
         if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
-            [[UIApplication sharedApplication] openURL:instagramURL];
+            [[UIApplication sharedApplication] openURL:instagramURL options:@{} completionHandler:nil];
         } else {
             NSLog(@"didn't work");
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://instagram.com"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://instagram.com"] options:@{} completionHandler:nil];
         }
     }
     else {
@@ -368,10 +360,10 @@
         NSLog(@"Installed");
         NSURL *snapchatURL = [NSURL URLWithString:@"snapchat://add/chocotako"];
         if ([[UIApplication sharedApplication] canOpenURL:snapchatURL]) {
-            [[UIApplication sharedApplication] openURL:snapchatURL];
+            [[UIApplication sharedApplication] openURL:snapchatURL options:@{} completionHandler:nil];
         } else {
             NSLog(@"didn't work");
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://snapchat.com"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://snapchat.com"] options:@{} completionHandler:nil];
         }
     }
     else {
@@ -386,10 +378,10 @@
         NSLog(@"Installed");
         NSURL *twitterURL = [NSURL URLWithString:@"twitter://twitterusrnamehere"];
         if ([[UIApplication sharedApplication] canOpenURL:twitterURL]) {
-            [[UIApplication sharedApplication] openURL:twitterURL];
+            [[UIApplication sharedApplication] openURL:twitterURL options:@{} completionHandler:nil];
         } else {
             NSLog(@"didn't work");
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com"] options:@{} completionHandler:nil];
         }
     }
     else {
@@ -404,10 +396,10 @@
         NSLog(@"Installed");
         NSURL *linkedinURL = [NSURL URLWithString:@"linkedin://add/andrew-takao"];
         if ([[UIApplication sharedApplication] canOpenURL:linkedinURL]) {
-            [[UIApplication sharedApplication] openURL:linkedinURL];
+            [[UIApplication sharedApplication] openURL:linkedinURL options:@{} completionHandler:nil];
         } else {
             NSLog(@"Bad URL");
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://linkedin.com"]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://linkedin.com"] options:@{} completionHandler:nil];
         }
     }
     else {
@@ -425,106 +417,66 @@
     [alertView setContainerView:customView];
     [alertView show];
     
-    //    ProfilePictures *alertView = [[ProfilePictures alloc] init];
-    //    Add some custom content to the alert view (optional)
-    //
-    //    UIView *customView ..;
-    //
-    //    [alertView setContainerView:customView];
-    //    Display the dialog
-    //
-    //    [alertView show];
-    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Popup Title"
-    //                                                    message:nil
-    //                                                   delegate:nil
-    //                                          cancelButtonTitle:@"Close"
-    //                                          otherButtonTitles:nil];
-    //
-    //    UIImageView *tempImageView=[[UIImageView alloc]initWithFrame:CGRectMake(20,20,50,50)];
-    //
-    //    tempImageView.image=[UIImage imageNamed:@"profile3.jpg"];
-    //
-    //    [alert addSubview:tempImageView];
-    //
-    //    [alert show];
 }
 
 -(void)contactTapped{
     
     NSString *contactmessage = @"takaoandrew@gmail.com\r631-398-9782";
-    //
-    //    UIAlertController* alert = [UIAlertController alertControllerWithTitle:contactmessage
-    //                                                                   message:@" "
-    //                                                            preferredStyle:UIAlertControllerStyleAlert];
-    //
-    //    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-    //                                                          handler:^(UIAlertAction * action) {}];
-    //
-    //    [alert addAction:defaultAction];
-    //    [self presentViewController:alert animated:YES completion:nil];
-    //
-    UIAlertView *contacttoast = [[UIAlertView alloc]
-                                 initWithTitle:nil
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:nil
                                  message:contactmessage
-                                 delegate:nil
-                                 cancelButtonTitle:@"Close"
-                                 otherButtonTitles:nil, nil];
-    [contacttoast show];
-    
-    int duration = 20; // duration in seconds
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [contacttoast dismissWithClickedButtonIndex:0 animated:YES];
-    });
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* close = [UIAlertAction
+                                actionWithTitle:@"Close"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    //Handle your yes please button action here
+                                }];
+    [alert addAction:close];
+    [self presentViewController:alert animated:YES completion:nil];
     NSLog(@"single Tap on imageview");
 }
 
 -(void)echoTapped{
     NSString *message = @"Coming Soon...";
-    UIAlertView *toast = [[UIAlertView alloc]
-                          initWithTitle:nil
-                          message:message
-                          delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:nil, nil];
-    [toast show];
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:nil
+                                message:message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
     int duration = 1; // duration in seconds
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [toast dismissWithClickedButtonIndex:0 animated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     });
     NSLog(@"single Tap on imageview");
 }
 
 -(void)settingsTapped{
     NSString *message = @"Coming Soon...";
-    UIAlertView *toast = [[UIAlertView alloc]
-                          initWithTitle:nil
-                          message:message
-                          delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:nil, nil];
-    [toast show];
-    int duration = 1; // duration in seconds
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:nil
+                                message:message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    int duration = 1;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [toast dismissWithClickedButtonIndex:0 animated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     });
-    NSLog(@"single Tap on imageview");
+
 }
 
 -(void)feedTapped{
     NSString *message = @"Coming Soon...";
-    UIAlertView *toast = [[UIAlertView alloc]
-                          initWithTitle:nil
-                          message:message
-                          delegate:nil
-                          cancelButtonTitle:nil
-                          otherButtonTitles:nil, nil];
-    [toast show];
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:nil
+                                message:message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
     int duration = 1; // duration in seconds
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [toast dismissWithClickedButtonIndex:0 animated:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
     });
-    NSLog(@"single Tap on imageview");
+
 }
 
 -(void)viewDidLoad
