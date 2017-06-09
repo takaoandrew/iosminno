@@ -75,6 +75,7 @@
 		BF9C82451EB6BB6F00C61738 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF9C82531EB6C5AD00C61738 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		BF9C82551EB6C5DB00C61738 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		BF9FCA091EE831C1009780AA /* BubbleUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleUIViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF7863CE1EE7735C00B0100E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BF7863A11EE04FEA00B0100E /* feed.jpeg */,
+				BF7863A21EE04FEA00B0100E /* avatar.png */,
+				BF78639F1EE04EF500B0100E /* settings.png */,
+				BF78639B1EE047FF00B0100E /* linkedin.png */,
+				BF78639C1EE047FF00B0100E /* twitter.png */,
+				BF7863991EDF68E800B0100E /* instagram3.jpg */,
+				BF4850B61ECA017F00E47267 /* profile3.jpg */,
+				BF4850B41EC9F84A00E47267 /* facebook.png */,
+				BF4850BA1ECB4F7500E47267 /* snapchat.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		BF7863F01EE77A0100B0100E /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				BF9C82211EB6BB6F00C61738 /* AppDelegate.h */,
+				BF9C82221EB6BB6F00C61738 /* AppDelegate.m */,
+				BF9C82241EB6BB6F00C61738 /* ViewController.h */,
+				BF9C82251EB6BB6F00C61738 /* ViewController.m */,
+				BF9C82271EB6BB6F00C61738 /* Main.storyboard */,
+				BF9C822A1EB6BB6F00C61738 /* Assets.xcassets */,
+				BF9C822C1EB6BB6F00C61738 /* LaunchScreen.storyboard */,
+				BF9C822F1EB6BB6F00C61738 /* Info.plist */,
+				BF6FFBAA1ED6359800C8B17A /* CustomIOSAlertView.m */,
+				BF6FFBAC1ED635AF00C8B17A /* CustomIOSAlertView.h */,
+				BF9C821F1EB6BB6F00C61738 /* main.m */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		BF9C82121EB6BB6E00C61738 = {
 			isa = PBXGroup;
 			children = (
@@ -125,28 +160,10 @@
 		BF9C821D1EB6BB6F00C61738 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				BF7863A11EE04FEA00B0100E /* feed.jpeg */,
-				BF7863A21EE04FEA00B0100E /* avatar.png */,
-				BF78639F1EE04EF500B0100E /* settings.png */,
-				BF78639B1EE047FF00B0100E /* linkedin.png */,
-				BF78639C1EE047FF00B0100E /* twitter.png */,
-				BF7863991EDF68E800B0100E /* instagram3.jpg */,
-				BF4850B61ECA017F00E47267 /* profile3.jpg */,
-				BF4850B41EC9F84A00E47267 /* facebook.png */,
-				BF4850BA1ECB4F7500E47267 /* snapchat.png */,
-				BF9C82211EB6BB6F00C61738 /* AppDelegate.h */,
-				BF9C82221EB6BB6F00C61738 /* AppDelegate.m */,
-				BF9C82241EB6BB6F00C61738 /* ViewController.h */,
-				BF9C82251EB6BB6F00C61738 /* ViewController.m */,
-				BF9C82271EB6BB6F00C61738 /* Main.storyboard */,
-				BF9C822A1EB6BB6F00C61738 /* Assets.xcassets */,
-				BF9C822C1EB6BB6F00C61738 /* LaunchScreen.storyboard */,
-				BF9C822F1EB6BB6F00C61738 /* Info.plist */,
 				BF9C821E1EB6BB6F00C61738 /* Supporting Files */,
-				BF9C82531EB6C5AD00C61738 /* LoginVC.m */,
 				BF9C82551EB6C5DB00C61738 /* LoginVC.h */,
-				BF6FFBAA1ED6359800C8B17A /* CustomIOSAlertView.m */,
-				BF6FFBAC1ED635AF00C8B17A /* CustomIOSAlertView.h */,
+				BF9C82531EB6C5AD00C61738 /* LoginVC.m */,
+				BF9FCA091EE831C1009780AA /* BubbleUIViewController.h */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -154,7 +171,8 @@
 		BF9C821E1EB6BB6F00C61738 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BF9C821F1EB6BB6F00C61738 /* main.m */,
+				BF7863F01EE77A0100B0100E /* Others */,
+				BF7863CE1EE7735C00B0100E /* Images */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

@@ -13,8 +13,15 @@
 //#endif /* LoginVC_h */
 
 #import <UIKit/UIKit.h>
-
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+{
+    NSMutableArray *arrayData;
+    NSMutableArray *arrayToDelete;
+}
+@property UITextField* txtField;
+@property UIButton* btnAdd;
+@property UIButton* btnDelete;
+@property (strong, nonatomic) UITableView* tableView;
 
 @property NSDictionary* viewNames;
 
@@ -27,7 +34,8 @@
 @property UILabel* connectNumberView;
 @property UILabel* friendNumberView;
 @property UILabel* connectView;
-@property UILabel* friendView; 
+@property UILabel* friendView;
+@property UILabel* seeMore;
 @property UIImageView* facebookView;
 @property UIImageView* instagramView;
 @property UIImageView* snapchatView;
@@ -45,6 +53,7 @@
 @property UIImageView* feedView;
 
 @property UISearchBar* searchBar;
+
 
 
 
