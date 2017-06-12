@@ -26,6 +26,7 @@
 		BF9C82391EB6BB6F00C61738 /* TestAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C82381EB6BB6F00C61738 /* TestAppTests.m */; };
 		BF9C82441EB6BB6F00C61738 /* TestAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C82431EB6BB6F00C61738 /* TestAppUITests.m */; };
 		BF9C82541EB6C5AD00C61738 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C82531EB6C5AD00C61738 /* LoginVC.m */; };
+		BF9FCB0C1EEE3D16009780AA /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9FCB0B1EEE3D16009780AA /* SettingsVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		BF9C82531EB6C5AD00C61738 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		BF9C82551EB6C5DB00C61738 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		BF9FCA091EE831C1009780AA /* BubbleUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleUIViewController.h; sourceTree = "<group>"; };
+		BF9FCB0A1EEE3CFF009780AA /* SettingsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
+		BF9FCB0B1EEE3D16009780AA /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				BF9C82551EB6C5DB00C61738 /* LoginVC.h */,
 				BF9C82531EB6C5AD00C61738 /* LoginVC.m */,
 				BF9FCA091EE831C1009780AA /* BubbleUIViewController.h */,
+				BF9FCB0A1EEE3CFF009780AA /* SettingsVC.h */,
+				BF9FCB0B1EEE3D16009780AA /* SettingsVC.m */,
 			);
 			path = TestApp;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				BF9C82231EB6BB6F00C61738 /* AppDelegate.m in Sources */,
 				BF9C82541EB6C5AD00C61738 /* LoginVC.m in Sources */,
 				BF9C82201EB6BB6F00C61738 /* main.m in Sources */,
+				BF9FCB0C1EEE3D16009780AA /* SettingsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

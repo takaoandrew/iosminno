@@ -1,4 +1,12 @@
 //
+//  SettingsVC.m
+//  TestApp
+//
+//  Created by Andrew Takao on 6/11/17.
+//  Copyright © 2017 Andrew Takao. All rights reserved.
+//
+
+//
 //  LoginVC.m
 //  TestApp
 //
@@ -7,75 +15,11 @@
 //
 
 //#import <Foundation/Foundation.h>
-#import "LoginVC.h"
-#import "CustomIOSAlertView.h"
 #import "SettingsVC.h"
+#import "CustomIOSAlertView.h"
 
 @implementation SettingsViewController
-@end
 
-@implementation LoginViewController
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (arrayData.count > 0) {
-        return arrayData.count;
-    }
-    return 0;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-//    UILabel *myLabel;
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier: @"cell1"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell1"];
-        cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:17.0];
-        cell.textLabel.text = [arrayData objectAtIndex:indexPath.row];
-        cell.textLabel.textAlignment = NSTextAlignmentRight;
-        
-        cell.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar.png"]];
-        cell.accessoryView.frame = CGRectMake(20, 0, 20, 20);
-    }
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@",arrayData[indexPath.row]];
-    
-//    UIImageView *avatarView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"avatar.png"]];
-//    cell.accessoryView = avatarView;
-//    [avatarView sizeToFit];
-//    [avatarView release];
-    
-    
-//    UIImage* avatarImage = [UIImage imageNamed:@"avatar.png"];
-//    cell.imageView.image = avatarImage;
-//    
-//    CGSize itemSize = CGSizeMake(20, 20);
-//    UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
-//    CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
-//    [cell.imageView.image drawInRect:imageRect];
-//    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-    
-//    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    
-    
-    
-
-    NSLog(@"title of cell %@", [arrayData objectAtIndex:indexPath.row]);
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [arrayToDelete addObject:arrayData[indexPath.row]];
-}
-
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [arrayToDelete removeObject:arrayData[indexPath.row]];
-}
-
--(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 3;
-}
 
 -(void)addLayout:(NSString*)format
 {
@@ -133,14 +77,6 @@
     self.avatarView = [[UIImageView alloc] init];
     self.feedView = [[UIImageView alloc] init];
     
-    arrayData = [[NSMutableArray alloc] init];
-    arrayToDelete = [[NSMutableArray alloc] init];
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 200) style:UITableViewStylePlain];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     
     self.txtField = [[UITextField alloc] initWithFrame:CGRectMake(50, 50, 1380, 1080)];
     
@@ -164,23 +100,23 @@
     [self.view addSubview:self.seeMore];
     [self.view addSubview:self.facebookView];
     [self.view addSubview:self.instagramView];
-//    [self.view addSubview:self.snapchatView];
-//    [self.view addSubview:self.twitterView];
-//    [self.view addSubview:self.linkedinView];
+    //    [self.view addSubview:self.snapchatView];
+    //    [self.view addSubview:self.twitterView];
+    //    [self.view addSubview:self.linkedinView];
     [self.view addSubview:self.facebookUser];
     [self.view addSubview:self.instagramUser];
-//    [self.view addSubview:self.snapchatUser];
-//    [self.view addSubview:self.twitterUser];
-//    [self.view addSubview:self.linkedinUser];
+    //    [self.view addSubview:self.snapchatUser];
+    //    [self.view addSubview:self.twitterUser];
+    //    [self.view addSubview:self.linkedinUser];
     [self.view addSubview:self.facebookMutual];
     [self.view addSubview:self.instagramMutual];
     [self.view addSubview:self.settingsView];
     [self.view addSubview:self.avatarView];
     [self.view addSubview:self.feedView];
-    [self.view addSubview:self.tableView];
+//    [self.view addSubview:self.tableView];
     [self.view addSubview:self.txtField];
     [self.view addSubview:self.btnAdd];
-//    [self.view addSubview:self.btnDelete];
+    //    [self.view addSubview:self.btnDelete];
     
     self.searchBar.translatesAutoresizingMaskIntoConstraints = NO;
     self.profileView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -207,11 +143,11 @@
     self.settingsView.translatesAutoresizingMaskIntoConstraints = NO;
     self.avatarView.translatesAutoresizingMaskIntoConstraints = NO;
     self.feedView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
+//    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
     self.txtField.translatesAutoresizingMaskIntoConstraints = NO;
     self.btnAdd.translatesAutoresizingMaskIntoConstraints = NO;
     self.btnDelete.translatesAutoresizingMaskIntoConstraints = NO;
-
+    
     
     self.profileView.image = [UIImage imageNamed:@"profile3.jpg"];
     self.facebookView.image = [UIImage imageNamed:@"facebook.png"];
@@ -324,7 +260,7 @@
      setTitleColor: self.view.tintColor
      forState: UIControlStateNormal];
     
-
+    
     
     self.viewNames = @{
                        @"view"          : self.view,
@@ -355,9 +291,9 @@
                        @"feed"          : self.feedView,
                        
                        @"add"           : self.btnAdd,
-//                       @"delete"        : self.btnDelete,
+                       //                       @"delete"        : self.btnDelete,
                        @"textfield"     : self.txtField,
-                       @"tableview"     : self.tableView
+//                       @"tableview"     : self.tableView
                        };
     
     
@@ -366,55 +302,7 @@
     [self addLayout:@"V:|-20-[feed(30)]"];
     [self addLayout:@"H:|-[settings(30)]-125-[avatar(30)]-125-[feed(30)]-|"];
     
-    [self addLayout:@"V:|-60-[searchbar]"];
-    [self addLayout:@"H:|-[searchbar]-|"];
     
-    [self addLayout:@"V:|-140-[name]"];
-    [self addLayout:@"H:|-20-[profile(75)]-80-[name]-|"];
-    
-    [self addLayout:@"V:|-120-[profile(100)]"];
-    [self addLayout:@"V:|-170-[connect]"];
-    [self addLayout:@"V:|-170-[friend]"];
-    [self addLayout:@"V:|-185-[connectnum]"];
-    [self addLayout:@"V:|-185-[friendnum]"];
-    [self addLayout:@"H:|-20-[profile(75)]-40-[connect]-[friend(==connect)]-|"];
-    [self addLayout:@"H:|-20-[profile(75)]-65-[connectnum(==connect)]-0-[friendnum]-|"];
-    
-    [self addLayout:@"V:|-225-[contact]"];
-    [self addLayout:@"V:|-225-[echo]"];
-    [self addLayout:@"H:|-90-[contact]-30-[echo]-|"];
-//    
-//    self.facebookMutual.numberOfLines = 0;
-//    self.facebookMutual.lineBreakMode = NSLineBreakByWordWrapping;
-    [self addLayout:@"V:|-260-[facebookimg(40)]"];
-    [self addLayout:@"V:|-270-[facebookusr]"];
-    [self addLayout:@"V:|-270-[facebookmut]"];
-    [self addLayout:@"H:|-20-[facebookimg(40)]-30-[facebookusr]-60-[facebookmut]-50@1000-|"];
-    [self addLayout:@"V:|-310-[instagramimg(40)]"];
-    [self addLayout:@"V:|-320-[instagramusr]"];
-    [self addLayout:@"V:|-320-[instagrammut]"];
-    [self addLayout:@"H:|-20-[instagramimg(40)]-30-[instagramusr]-60-[instagrammut]-50@1000-|"];
-    [self addLayout:@"V:|-360-[seemore(40)]"];
-    [self addLayout:@"H:|-100-[seemore(100)]-40-|"];
-    
-//    [self addLayout:@"V:|-360-[snapchatimg(40)]"];
-//    [self addLayout:@"V:|-370-[snapchatusr]"];
-//    [self addLayout:@"H:|-20-[snapchatimg(40)]-30-[snapchatusr]-60-|"];
-//    [self addLayout:@"V:|-410-[twitterimg(40)]"];
-//    [self addLayout:@"V:|-420-[twitterusr]"];
-//    [self addLayout:@"H:|-20-[twitterimg(40)]-30-[twitterusr]-60-|"];
-//    [self addLayout:@"V:|-460-[linkedinimg(40)]"];
-//    [self addLayout:@"V:|-470-[linkedinusr]"];
-//    [self addLayout:@"H:|-20-[linkedinimg(40)]-30-[linkedinusr]-60-|"];
-    
-    
-    [self addLayout:@"V:|-620-[textfield(40)]"];
-    [self addLayout:@"V:|-410-[tableview(200)]"];
-    CGFloat basicwidth = width-45;
-    NSLog(@"%f", basicwidth);
-    [self addLayout:[NSString stringWithFormat:@"H:|-[tableview(%f)]-|",basicwidth]];
-    [self addLayout:@"V:|-620-[add]"];
-    [self addLayout:@"H:|-20-[textfield(280)]-10-[add]-|"];
     
 }
 
@@ -435,8 +323,8 @@
     [self addLayout:@"V:|-460-[linkedinimg(40)]"];
     [self addLayout:@"V:|-470-[linkedinusr]"];
     [self addLayout:@"H:|-20-[linkedinimg(40)]-30-[linkedinusr]-60-|"];
-    [self.tableView removeFromSuperview];
-    [self.view addSubview:self.tableView];
+//    [self.tableView removeFromSuperview];
+//    [self.view addSubview:self.tableView];
     [self addLayout:@"V:|-510-[tableview(100)]"];
     [self addLayout:[NSString stringWithFormat:@"H:|-[tableview(350)]-|"]];
     
@@ -597,11 +485,11 @@
                                  message:contactmessage
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* close = [UIAlertAction
-                                actionWithTitle:@"Close"
-                                style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction * action) {
-                                    //Handle your yes please button action here
-                                }];
+                            actionWithTitle:@"Close"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action) {
+                                //Handle your yes please button action here
+                            }];
     [alert addAction:close];
     [self presentViewController:alert animated:YES completion:nil];
     NSLog(@"single Tap on imageview");
@@ -622,9 +510,17 @@
 }
 
 -(void)settingsTapped{
-    NSLog(@"Coming Soon...");
-    [self presentViewController:SettingsViewController animated:YES completion:nil];
-
+    NSString *message = @"Coming Soon...";
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:nil
+                                message:message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    int duration = 1;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self dismissViewControllerAnimated:YES completion:nil];
+    });
+    
 }
 
 -(void)feedTapped{
@@ -640,15 +536,15 @@
     });
     
 }
-
--(void)addTapped{
-//    NSLog(@"Count = ");
-//    NSLog(@"%lu", arrayData.count);
-    [arrayData addObject:self.txtField.text];
-    [self.tableView reloadData];
-    self.txtField.text = @"";
-    if (arrayData.count > 0)
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:arrayData.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];}
+//
+//-(void)addTapped{
+//    //    NSLog(@"Count = ");
+//    //    NSLog(@"%lu", arrayData.count);
+//    [arrayData addObject:self.txtField.text];
+//    [self.tableView reloadData];
+//    self.txtField.text = @"";
+//    if (arrayData.count > 0)
+//        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:arrayData.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];}
 
 -(void)viewDidLoad
 {
